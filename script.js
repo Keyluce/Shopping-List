@@ -50,6 +50,11 @@ function addItemToDom(item) {
   const li = document.createElement('li');
   li.appendChild(document.createTextNode(item));
 
+  const amazon = document.createElement('button');
+  amazon.className = 'remove-item btn-link text-red';
+  amazon.innerHTML = `<a href="https://www.amazon.in/s?k=${item}">Buy</a>`;
+  li.appendChild(amazon);
+
   const button = createButton('remove-item btn-link text-red');
   li.appendChild(button);
 
