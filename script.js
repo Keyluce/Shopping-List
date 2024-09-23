@@ -51,8 +51,8 @@ function addItemToDom(item) {
   li.appendChild(document.createTextNode(item));
 
   const amazon = document.createElement('button');
-  amazon.className = 'remove-item btn-link text-red';
-  amazon.innerHTML = `<a href="https://www.amazon.in/s?k=${item}">Buy</a>`;
+  amazon.className = 'remove-item btn-link text-red ';
+  amazon.innerHTML = `<a class="buy-link" href="https://www.amazon.in/s?k=${item}" target=_"blank">Buy</a>`;
   li.appendChild(amazon);
 
   const button = createButton('remove-item btn-link text-red');
@@ -94,7 +94,9 @@ function getItemsFromStorage() {
   return itemsFromStorage;
 }
 function onClickItem(e) {
-  if (e.target.parentElement.classList.contains('remove-item')) {
+  if (e.target.classList.contains('buy-link')) {
+    console.log('link opened');
+  } else if (e.target.parentElement.classList.contains('remove-item')) {
     removeItem(e.target.parentElement.parentElement);
   } else {
     if (e.target.tagName == 'LI') {
