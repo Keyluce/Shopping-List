@@ -122,7 +122,7 @@ function setItemToEdit(item) {
   // console.log(formBtn.children[0].className);
   // formBtn.textContent = 'Update Item';
   formBtn.style.backgroundColor = '#228b22';
-  itemInput.value = item.textContent;
+  itemInput.value = item.firstChild.textContent.trim();
 }
 function removeItem(item) {
   if (confirm('Are you sure?')) {
